@@ -10,13 +10,13 @@ import { useSelector } from "react-redux"
 //COMPONENT IMPORTS /////////////////////////////
 //===============================================================================
 
-import MainGameHeadline from '../components/MainGameHeadline.js'
-import { GameBoard } from "../components/GameBoard/GameBoard.js"
-import { Timer } from "../components/Timer.js"
-import { Lives } from "../components/Lives.js"
-import { Smiley } from "../components/Smiley.js"
-import { ChangeDifficulty } from "../components/ChangeDifficulty.js"
-import { Flags } from "../components/Flags.js"
+import MainGameHeadline from '../OLD components/MainGameHeadline.js'
+import { GameBoard } from "../OLD components/GameBoard/GameBoard.js"
+import { Timer } from "../OLD components/Timer.js"
+import { Lives } from "../OLD components/Lives.js"
+import { Smiley } from "../OLD components/Smiley.js"
+import { ChangeDifficulty } from "../OLD components/ChangeDifficulty.js"
+import { Flags } from "../OLD components/Flags.js"
 //===============================================================================
 
 // let navigate = useNavigate()

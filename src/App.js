@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import {MainGamePage} from './pages/MainGamePage.js'
+import {MainGamePage} from './OLD pages/MainGamePage.js'
 // import 'assets/style/main.scss
 // import ScoreBoard from './pages/ScoreBoard.js';
 import {connect} from 'react-redux'
