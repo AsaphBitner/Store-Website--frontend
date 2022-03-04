@@ -1,9 +1,9 @@
 export default function _DeleteButton(){
     return(
         <div className="add-button button">
-            <h3>
+            <button>
                 DELETE
-            </h3>
+            </button>
         </div>
     )
 } 

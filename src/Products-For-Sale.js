@@ -1,8 +1,17 @@
 
+function makeId(length = 7) {
+    var text = ''
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (var ii = 0; ii < length; ii++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
+}
 
 export default function itemsList(){
     const products = [
         {
+            _id: makeId(),
             name: 'Gold Brick',
             price: 10000,
             description: 'Wow shiny gold great wonderful wow fantastic',
@@ -10,6 +19,7 @@ export default function itemsList(){
         },
         
         {
+            _id: makeId(),
             name: 'Orange',
             price: 1,
             description: 'Wow tasty orange fruit great wonderful wow fantastic',
@@ -17,6 +27,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Computer',
             price: 1000,
             description: 'Wow cool laptop computer great wonderful wow fantastic',
@@ -24,6 +35,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Car',
             price: 5000,
             description: 'Wow nice vehicle to drive great wonderful wow fantastic',
@@ -31,6 +43,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Book',
             price: 25,
             description: 'Wow reading interesting stuff great wonderful wow fantastic',
@@ -38,6 +51,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Pizza',
             price: 28,
             description: 'Wow yummy pizza great wonderful wow fantastic',
@@ -45,6 +59,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Phone',
             price: 900,
             description: 'Wow apps and calling and texts great wonderful wow fantastic',
@@ -52,6 +67,7 @@ export default function itemsList(){
         },
     
         {
+            _id: makeId(),
             name: 'Bicycle',
             price: 400,
             description: 'Wow cycling sport fun riding a bike great wonderful wow fantastic',

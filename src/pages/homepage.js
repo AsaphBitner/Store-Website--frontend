@@ -1,16 +1,31 @@
 
-// CART COUNTER 
-// CART DIV MODAL
+import { connect } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
+function _HomePage(){
 
-// LIST OF PRODUCTS:
-    // • Image - when editing/adding use an input field to paste urls from google (as opposed to
-    // a file uploader)
-    // • Title (name of product)
-    // • Description (Up to X characters)
-    // • Price (USD)
-    // BUY button
-    // PAY button
+    const navigate = useNavigate()
+    const navAdmin = () => navigate('/adminpage')
+    const navHome = () => navigate('/homepage')
+    const navStats = () => navigate('/statspage')
 
+    return(
+        <div className="admin-page">
+           <div onClick={navAdmin}>TO ADMIN</div>
+            <div onClick={navHome}>TO HOME</div>
+            <div onClick={navStats}>TO STATS</div>
+            <h1>HOMEPAGE</h1>
+        </div>
+    )
 
+}
 
+    
+const mapStateToProps = state => {
+    return { ...state }
+}
+const mapDispatchToProps = {
+
+}
+
+export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage)

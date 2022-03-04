@@ -1,8 +1,32 @@
 
+import { connect } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 
-// TOP 5 Sell list
+function _StatsPage(){
 
-// Top 5 UNIQUE Sell list
+    const navigate = useNavigate()
+    const navAdmin = () => navigate('/adminpage')
+    const navHome = () => navigate('/homepage')
+    const navStats = () => navigate('/statspage')
 
-// Money past 5 days 
+    return(
+        <div className="admin-page">
+            <div onClick={navAdmin}>TO ADMIN</div>
+            <div onClick={navHome}>TO HOME</div>
+            <div onClick={navStats}>TO STATS</div>
+            <h1>STATISTICS PAGE</h1>
+        </div>
+    )
+
+}
+
+    
+const mapStateToProps = state => {
+    return { ...state }
+}
+const mapDispatchToProps = {
+
+}
+
+export const StatsPage = connect(mapStateToProps, mapDispatchToProps)(_StatsPage)

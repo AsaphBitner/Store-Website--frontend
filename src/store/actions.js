@@ -1,22 +1,21 @@
 import { dataService } from "../services/data-service"
-// import { useDispatch } from "react-redux"
 // export default actions = {
 //     buildNewBoard
 // }
 
 // const dispatch = useDispatch()
 
-export function buildNewBoard(num){ 
+export function createProducts(){ 
     return async (dispatch) => {
-    let board = await dataService.buildNewBoard(num)
-    dispatch({type: 'UPDATE_BOARD', gameBoard: board})
+    let products = await dataService.createProducts()
+    dispatch({type: 'UPDATE_PRODUCTS', products})
 }
 }
 
-export function updateCell(cell){ 
+export function updateProduct(payload){ 
     return async (dispatch) => {
-    let board = await dataService.updateCell(cell)
-    dispatch({type: 'UPDATE_BOARD', gameBoard: board})
+        let products = await dataService.updateProduct(payload)
+        dispatch({type: 'UPDATE_PRODUCTS', products})
     }
 }
 

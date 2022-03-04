@@ -1,15 +1,15 @@
+// import itemsList from "../Products-For-Sale"
 
 const defaultState ={
-    // time: {seconds: 0, minutes: 0, hours: 0, hundreds: 0}
 }
 
 export default function myReducer(state = defaultState, action = {}){
     switch(action.type) {
         case 'UPDATE_STATE':
             return state
-        case 'UPDATE_BOARD':
+        case 'UPDATE_PRODUCTS':
             // console.log(action.gameBoard)
-            return {...state, gameBoard: action.gameBoard}
+            return {...state, products: action.products}
         case 'CHANGE_SIZE':
             return {...state, boardSize: action.boardSize}
         case 'CHANGE_GAME_ON':

@@ -8,24 +8,26 @@ export default function AdminItemsList(){
     return(
         <div className="admin-items-list">
             <table>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
-                    option
-                </th>
                 <tbody>
+                    <tr>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            option
+                        </th>
+                    </tr>
                 {items.map((item)=>{
                     return(
-                        <tr>
+                        <tr key={item.name}>
                             <td>{item.name}</td>
-                            <td>{item.price}</td>
+                            <td>{`$${item.price}`}</td>
                             <td>
-                                {_AddButton}
-                                {_EditButton}
+                                <_DeleteButton />
+                                <_EditButton />
                             </td>
                         </tr>
                 )})}

@@ -1,9 +1,9 @@
 export default function _EditButton(){
     return(
         <div className="add-button button">
-            <h3>
+            <button>
                 EDIT
-            </h3>
+            </button>
         </div>
     )
 } 
