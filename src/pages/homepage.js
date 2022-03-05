@@ -1,8 +1,14 @@
 
+import { useEffect } from "react"
 import { connect } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
+
 function _HomePage(){
+
+    useEffect(()=>{
+
+    })
 
     const navigate = useNavigate()
     const navAdmin = () => navigate('/adminpage')
