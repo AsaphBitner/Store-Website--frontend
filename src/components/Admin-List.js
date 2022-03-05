@@ -1,11 +1,20 @@
-import itemsList from "../Products-For-Sale";
+// import itemsList from "../Products-For-Sale";
 import _AddButton from "./Admin-Add-Button";
 import _EditButton from "./Admin-List-Edit-Button"
-import _DeleteButton from "./Admin-List-Delete-Button"
+import {DeleteButton} from "./Admin-List-Delete-Button"
+import { useSelector } from "react-redux"
 
 export default function AdminItemsList(){
-    const items = itemsList()
-    return(
+    const state = useSelector(state => state)
+    const items = state.products
+    // console.log(state)
+    // console.log(items)
+
+    if (!items) {return(
+        <>
+        </>
+    )}
+    else return(
         <div className="admin-items-list">
             <table>
                 <tbody>
@@ -22,12 +31,12 @@ export default function AdminItemsList(){
                     </tr>
                 {items.map((item)=>{
                     return(
-                        <tr key={item.name}>
+                        <tr key={item._id}>
                             <td>{item.name}</td>
                             <td>{`$${item.price}`}</td>
                             <td>
-                                <_DeleteButton />
-                                <_EditButton />
+                                <DeleteButton product={item} />
+                                <_EditButton product={item} />
                             </td>
                         </tr>
                 )})}

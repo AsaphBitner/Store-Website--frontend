@@ -20,17 +20,35 @@ body{
    background-color: rgb(0, 0, 0, 0.6);
    justify-content: center;
    align-items: center;
+   z-index: 1;
 }
 button{
    margin: .1rem;
 }
 
 .add-product-inner{
-   margin: auto;
+   margin: 6rem auto auto;
    width: 35%;
    height: 25%;
    background-color: whitesmoke;
    color: black;
+   padding: 0.2rem 2rem 3rem;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   height: fit-content;
+   button{
+      margin-top: .9rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: .4rem;
+   }
+}
+.add-modal-input{
+   margin: .3rem auto;
+   align-items: center;
+   justify-content: center;
+   padding: .2rem;
 }
 
 table{

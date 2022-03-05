@@ -1,9 +1,5 @@
 import { dataService } from "../services/data-service"
-// export default actions = {
-//     buildNewBoard
-// }
 
-// const dispatch = useDispatch()
 
 export function createProducts(){ 
     return async (dispatch) => {
@@ -12,9 +8,22 @@ export function createProducts(){
 }
 }
 
+export function addProduct(payload){ 
+    return async (dispatch) => {
+        let products = await dataService.addProduct(payload)
+        dispatch({type: 'UPDATE_PRODUCTS', products})
+    }
+}
 export function updateProduct(payload){ 
     return async (dispatch) => {
         let products = await dataService.updateProduct(payload)
+        dispatch({type: 'UPDATE_PRODUCTS', products})
+    }
+}
+
+export function deleteProduct(payload){ 
+    return async (dispatch) => {
+        let products = await dataService.deleteProduct(payload)
         dispatch({type: 'UPDATE_PRODUCTS', products})
     }
 }
