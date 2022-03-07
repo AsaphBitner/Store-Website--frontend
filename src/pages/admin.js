@@ -5,13 +5,12 @@ import AdminItemsList from "../components/Admin-List"
 import { useNavigate } from "react-router-dom"
 import { AddProduct } from "../components/Admin-Add-Modal"
 import { useEffect, useState } from "react"
-import { createProducts } from "../store/actions"
 
 function _AdminPage(props){
 
-    useEffect(()=>{
-        props.createProducts()
-    }, [])
+    // useEffect(()=>{
+    //     props.createProducts()
+    // }, [])
 
     const [showAddModal, setShowAddModal] = useState(false)
     const navigate = useNavigate()
@@ -23,9 +22,9 @@ function _AdminPage(props){
     return(
         <div className="admin-page">
             <AddProduct showAddModal={showAddModal} setShowAddModal={setShowAddModal} />
-            <div onClick={navAdmin}>TO ADMIN</div>
-            <div onClick={navHome}>TO HOME</div>
-            <div onClick={navStats}>TO STATS</div>
+            <button onClick={navAdmin}>TO ADMIN</button>
+            <button onClick={navHome}>TO HOME</button>
+            <button onClick={navStats}>TO STATS</button>
             <_AddButton showAddModal={showAddModal} setShowAddModal={setShowAddModal} />    
             <AdminItemsList />
 
@@ -39,7 +38,7 @@ const mapStateToProps = state => {
     return { ...state }
 }
 const mapDispatchToProps = {
-    createProducts,
+    // createProducts,
 }
 
 export const AdminPage = connect(mapStateToProps, mapDispatchToProps)(_AdminPage)

@@ -10,8 +10,14 @@ body{
    padding: 0; 
 }
 
+button{
+   cursor: pointer;
+   padding: .3rem;
+   background-color: whitesmoke;
+   border-radius: .25rem;
+}
 
-.add-product-modal{
+.add-product-modal, .edit-product-modal{
    position: fixed;
    top: 0;
    left: 0;
@@ -26,41 +32,66 @@ button{
    margin: .1rem;
 }
 
-.add-product-inner{
+.add-product-inner, .edit-product-inner{
    margin: 6rem auto auto;
-   width: 35%;
-   height: 25%;
+   width: 45%;
+   height: 55%;
    background-color: whitesmoke;
    color: black;
    padding: 0.2rem 2rem 3rem;
    align-items: center;
    justify-content: center;
    text-align: center;
-   height: fit-content;
+   // height: fit-content;
+   h1{
+      font-size: 3rem;
+   }
    button{
       margin-top: .9rem;
       font-size: 1.2rem;
       cursor: pointer;
       padding: .4rem;
+      // background-color: whitesmoke;
+      background-color: aquamarine;
    }
 }
-.add-modal-input{
+.add-modal-input, .edit-modal-input{
    margin: .3rem auto;
    align-items: center;
    justify-content: center;
    padding: .2rem;
+   font-size: 1rem;
+   // background-color: pink;
 }
 
 table{
    margin: auto;
+   margin-bottom: 5rem;
 }
 
+th{
+   background-color: aquamarine;
+   padding: 1rem;
+   font-size: 1.5rem;
+   font-weight: 700;
+}
 td{
    border: 1px solid black;
    padding:.3rem;
    align-items: center;
    justify-content: center;
    text-align: center;
+   max-width: 10rem;
+   max-height: 4.5rem;
+   background-color: rgb(211, 210, 210);
+   // display: flex;
+   // flex-direction: row;
+   
+}
+
+img{
+   height: 100%;
+   width: 100%;
 }
 
 

@@ -26,7 +26,13 @@ export default function AdminItemsList(){
                             Price
                         </th>
                         <th>
-                            option
+                            Description
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Option
                         </th>
                     </tr>
                 {items.map((item)=>{
@@ -34,6 +40,10 @@ export default function AdminItemsList(){
                         <tr key={item._id}>
                             <td>{item.name}</td>
                             <td>{`$${item.price}`}</td>
+                            <td>{`${item.description}`}</td>
+                            <td className="image-container">
+                                <img src={item.image}></img>                                
+                            </td>
                             <td>
                                 <DeleteButton product={item} />
                                 <_EditButton product={item} />

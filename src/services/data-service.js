@@ -1,4 +1,4 @@
-import { findIndex } from "lodash";
+// import { findIndex } from "lodash";
 import itemsList from "../Products-For-Sale";
 
 export const dataService = {
@@ -32,11 +32,13 @@ async function createProducts(){
 }
 
 async function updateProduct(payload){
-    const oldProducts = await _load('products')
-    const newProducts = oldProducts.filter((item) => item._id !== payload._id)
-    newProducts.push(payload)
-    await _save('products', newProducts)
-    return newProducts
+    const products = await _load('products')
+    const productIdx = products.findIndex(item => item._id === payload._id) 
+    products.splice(productIdx, 1, payload)
+    // const newProducts = oldProducts.filter((item) => item._id !== payload._id)
+    // newProducts.push(payload)
+    await _save('products', products)
+    return products
 }
 
 async function addProduct(payload){

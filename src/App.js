@@ -6,10 +6,16 @@ import { AdminPage } from './pages/Admin';
 import { HomePage } from './pages/Homepage';
 import { StatsPage } from './pages/Statistics';
 import {connect} from 'react-redux'
-import {buildNewBoard} from './store/actions'
+import { createProducts } from "./store/actions"
+import { useEffect } from 'react';
 
 function _App(props) {
   // console.log('APP PROPS', props)
+
+  useEffect(()=> {
+    props.createProducts()
+  }, [])
+
   return (
     <Router>
       <div className="App">
@@ -29,7 +35,7 @@ const mapStateToProps = state => {
   return {...state}
 }
 const mapDispatchToProps = {
-  
+  createProducts,
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(_App)
