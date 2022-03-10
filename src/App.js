@@ -6,7 +6,7 @@ import { AdminPage } from './pages/Admin';
 import { HomePage } from './pages/Homepage';
 import { StatsPage } from './pages/Statistics';
 import {connect} from 'react-redux'
-import { createProducts } from "./store/actions"
+import { createProducts, createCart } from "./store/actions"
 import { useEffect } from 'react';
 
 function _App(props) {
@@ -14,6 +14,7 @@ function _App(props) {
 
   useEffect(()=> {
     props.createProducts()
+    props.createCart()
   }, [])
 
   return (
@@ -36,6 +37,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = {
   createProducts,
+  createCart,
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(_App)

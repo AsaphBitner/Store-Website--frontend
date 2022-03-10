@@ -12,9 +12,9 @@ function _StatsPage(){
 
     return(
         <div className="admin-page">
-            <div onClick={navAdmin}>TO ADMIN</div>
-            <div onClick={navHome}>TO HOME</div>
-            <div onClick={navStats}>TO STATS</div>
+            <button onClick={navAdmin}>TO ADMIN</button>
+            <button onClick={navHome}>TO HOME</button>
+            <button onClick={navStats}>TO STATS</button>
             <h1>STATISTICS PAGE</h1>
         </div>
     )

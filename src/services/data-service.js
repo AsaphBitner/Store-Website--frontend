@@ -9,6 +9,8 @@ export const dataService = {
     updateProduct,
     addProduct,
     deleteProduct,
+    addToCart,
+    createCart,
 }
 
 
@@ -29,6 +31,12 @@ async function createProducts(){
     const products = itemsList()
     await _save('products', products)
     return products 
+}
+
+async function createCart(){
+    const cart = []
+    await _save('cart', cart)
+    return cart 
 }
 
 async function updateProduct(payload){
@@ -57,6 +65,12 @@ async function deleteProduct(payload){
     return newProducts
 }
 
+async function addToCart(payload){
+    const cart = await _load('cart') || []
+    cart.push(payload)
+    await _save('cart', cart)
+    return cart
+}
 
 
 
