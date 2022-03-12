@@ -17,10 +17,10 @@ export default function myReducer(state = defaultState, action = {}){
             return {...state, products: action.products}
         case 'UPDATE_CART':
             return {...state, cart: action.cart}
-        // case 'CHANGE_GAME_ON':
-        //     return {...state, gameOn: action.order}
-        // case 'CHANGE_GAME_OVER':
-        //     return {...state, gameOver: action.order}
+        case 'UPDATE_SALES':
+            return {...state, sales: action.sales}
+        case 'UPDATE_UNIQUE_SALES':
+            return {...state, uniqueSales: action.uniqueSales}
         // case 'CHANGE_MINES':
         //     return {...state, numOfMines: action.numOfMines}
         // case 'CHANGE_LIVES':

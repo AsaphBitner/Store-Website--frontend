@@ -1,4 +1,4 @@
-// import { findIndex } from "lodash";
+import { cloneDeep } from "lodash";
 import itemsList from "../Products-For-Sale";
 
 export const dataService = {
@@ -11,6 +11,11 @@ export const dataService = {
     deleteProduct,
     addToCart,
     createCart,
+    emptyCart,
+    createSales,
+    createUniqueSales,
+    buyCartSales,
+    buyCartUniqueSales,
 }
 
 
@@ -37,6 +42,18 @@ async function createCart(){
     const cart = []
     await _save('cart', cart)
     return cart 
+}
+
+async function createSales(){
+    const sales = []
+    await _save('sales', sales)
+    return sales
+}
+
+async function createUniqueSales(){
+    const uniqueSales = []
+    await _save('uniqueSales', uniqueSales)
+    return uniqueSales 
 }
 
 async function updateProduct(payload){
@@ -72,6 +89,37 @@ async function addToCart(payload){
     return cart
 }
 
+async function emptyCart(){
+    const cart = []
+    await _save('cart', cart)
+    return cart
+}
+
+async function buyCartSales(){
+    const cart = await _load('cart')
+    const sales = await _load('sales') || []
+    for (let ii = 0; ii < cart.length; ii++){
+        sales.push(cart[ii])    
+    }
+    await _save('sales', sales)
+    return sales
+}
+
+async function buyCartUniqueSales(){
+    const cart = await _load('cart')
+    const uniqueSales = await _load('uniqueSales') || []
+    const uniqueSalesTemp = []
+    for (let ii = 0; ii < cart.length; ii++){
+        if (!uniqueSalesTemp.length) {uniqueSalesTemp.push(cart[ii])}
+        else if (uniqueSalesTemp.find(item => item._id === cart[ii]._id)) {continue} else {uniqueSalesTemp.push(cart[ii])}
+    }
+    for (let jj = 0; jj < uniqueSalesTemp.length; jj++){
+        uniqueSales.push(uniqueSalesTemp[jj])
+    }
+
+    await _save('uniqueSales', uniqueSales)
+    return uniqueSales
+}
 
 
 function makeId(length = 7) {

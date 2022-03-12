@@ -6,14 +6,12 @@ export default function OpenCartdButton(props){
     const cartLength = cart.length
 
     
-    // useEffect(()=>{
-    //     console.log(cartLength)
-    // }, [cart])
+ 
 
     const changeModal = (ev)=> {
-        // console.log("HELLO")
         ev.preventDefault()
-        // if (props.showAddModal) {props.setShowAddModal(false)} else {props.setShowAddModal(true)}
+        ev.stopPropagation()
+        props.setShowCartModal(true)
     }
 
     return(

@@ -17,7 +17,7 @@ button{
    border-radius: .25rem;
 }
 
-.add-product-modal, .edit-product-modal{
+.add-product-modal, .edit-product-modal, .home-cart-modal{
    position: fixed;
    top: 0;
    left: 0;
@@ -32,7 +32,7 @@ button{
    margin: .1rem;
 }
 
-.add-product-inner, .edit-product-inner{
+.add-product-inner, .edit-product-inner, .home-cart-inner{
    margin: 6rem auto auto;
    width: 45%;
    height: 55%;
@@ -131,7 +131,7 @@ h1{
    //    background-color: ;
    // }
    .image-container{
-      max-height: 8rem;
+      height: 8rem;
       width: 100%;
       align-self: center;
       img{
@@ -140,10 +140,49 @@ h1{
    }
 }
 
-.open-cart-button{
+.home-cart-buttons{
+   display: flex;
+   gap: .8rem;
+   flex-direction: row;
    margin-left: 1rem;
+}
+
+.open-cart-button{
    button{
       font-size: 2rem;
    }
 }
+
+
+.cart-item{
+   display: flex;
+   flex-direction: row;
+   height: 2rem;
+   width: 100%;
+   padding: 1rem;
+}
+
+.buy-cart-button{
+   background-color: whitesmoke;
+}
+
+.cart-item{
+   display: flex;
+   flex-direction: row;
+   gap: 1rem;
+   // justify-content: center;
+   align-items: center;
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   .image-container{
+      height: 3rem;
+      width: 3rem;
+   }
+}
+
+
+
+
+
+
 

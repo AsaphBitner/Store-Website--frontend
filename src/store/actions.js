@@ -15,6 +15,20 @@ export function createCart(){
 }
 }
 
+export function createSales(){ 
+    return async (dispatch) => {
+    let sales = await dataService.createSales()
+    dispatch({type: 'UPDATE_SALES', sales})
+}
+}
+
+export function createUniqueSales(){ 
+    return async (dispatch) => {
+    let uniqueSales = await dataService.createUniqueSales()
+    dispatch({type: 'UPDATE_UNIQUE_SALES', uniqueSales})
+}
+}
+
 export function addProduct(payload){ 
     return async (dispatch) => {
         let products = await dataService.addProduct(payload)
@@ -45,4 +59,23 @@ export function addToCart(payload){
 }
 
 
+export function emptyCart(){ 
+    return async (dispatch) => {
+        let cart = await dataService.emptyCart()
+        dispatch({type: 'UPDATE_CART', cart})
+    }
+}
 
+export function buyCartSales(){ 
+    return async (dispatch) => {
+        let sales = await dataService.buyCartSales()
+        dispatch({type: 'UPDATE_SALES', sales})
+    }
+}
+
+export function buyCartUniqueSales(){ 
+    return async (dispatch) => {
+        let uniqueSales = await dataService.buyCartUniqueSales()
+        dispatch({type: 'UPDATE_UNIQUE_SALES', uniqueSales})
+    }
+}

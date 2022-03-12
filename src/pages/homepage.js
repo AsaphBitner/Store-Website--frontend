@@ -1,20 +1,25 @@
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import HomeItemsList from "../components/Home-List"
 import OpenCartdButton from "../components/Home-Open-Cart-Button"
+import { EmptyCart } from "../components/Home-Empty-Cart-Button"
+import { CartModal } from "../components/Home-Cart-Moadal"
 
 function _HomePage(){
 
-    useEffect(()=>{
+    const [showCartModal, setShowCartModal] = useState(false)
+    // useEffect(()=>{
 
-    })
+    // })
 
     const navigate = useNavigate()
     const navAdmin = () => navigate('/adminpage')
     const navHome = () => navigate('/homepage')
     const navStats = () => navigate('/statspage')
+    
+
 
     return(
         <div className="home-page">
@@ -22,7 +27,11 @@ function _HomePage(){
             <button onClick={navHome}>TO HOME</button>
             <button onClick={navStats}>TO STATS</button>
             <h1>HOMEPAGE</h1>
-            <OpenCartdButton />
+            <div className="home-cart-buttons">
+                <OpenCartdButton showCartModal={showCartModal} setShowCartModal={setShowCartModal} />
+                <CartModal showCartModal={showCartModal} setShowCartModal={setShowCartModal} />
+                <EmptyCart />
+            </div>
             <HomeItemsList />
         </div>
     )
