@@ -1,12 +1,21 @@
 // import { dataService } from "../services/data-service"
 // import { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { connect, useSelector } from "react-redux"
 import { buyCartSales, buyCartUniqueSales, emptyCart } from "../store/actions"
 // import cloneDeep from "lodash.clonedeep"
 
 function _CartModal(props){
-    
+    const [totalPrice, setTotalPrice] = useState(0) 
     const cart = useSelector(state => state.cart)
+
+    useEffect(() => {
+        let sum = 0
+        for(let ii = 0; ii < cart.length; ii++){
+            sum += cart[ii].price
+        }
+        setTotalPrice(sum)
+    }, [cart])
 
     const changeModal = (ev)=> {
         ev.preventDefault()
@@ -44,6 +53,7 @@ function _CartModal(props){
                             <div className="cart-item-part">{`$${item.price}`}</div>
                         </div>
                     )})}
+                    <h3>TOTAL: {totalPrice}</h3>
                     <button className="buy-cart-button button" onClick={handleBuy}>
                         BUY
                     </button>

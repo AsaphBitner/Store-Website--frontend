@@ -42,6 +42,8 @@ button{
    align-items: center;
    justify-content: center;
    text-align: center;
+   overflow: scroll;
+   overflow-x: hidden;
    // height: fit-content;
    h1{
       font-size: 3rem;

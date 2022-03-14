@@ -99,6 +99,7 @@ async function buyCartSales(){
     const cart = await _load('cart')
     const sales = await _load('sales') || []
     for (let ii = 0; ii < cart.length; ii++){
+        cart[ii].createdAt = Date.now()
         sales.push(cart[ii])    
     }
     await _save('sales', sales)
@@ -114,6 +115,7 @@ async function buyCartUniqueSales(){
         else if (uniqueSalesTemp.find(item => item._id === cart[ii]._id)) {continue} else {uniqueSalesTemp.push(cart[ii])}
     }
     for (let jj = 0; jj < uniqueSalesTemp.length; jj++){
+        uniqueSalesTemp[jj].createdAt = Date.now()
         uniqueSales.push(uniqueSalesTemp[jj])
     }
 
