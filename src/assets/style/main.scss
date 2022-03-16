@@ -182,7 +182,31 @@ h1{
    }
 }
 
+.statistics-cards-container{
+   display: flex;
+   flex-direction: row;
+}
 
+.statistics-card{
+   width: 20rem;
+   max-height: 25rem;
+   margin: 1rem;
+   padding: 0rem .4rem 1rem;
+   display: flex;
+   flex-direction: column;
+   gap: .7rem;
+   border: .2rem solid black;
+   border-radius: .5rem;
+   background-color: whitesmoke;
+   // justify-content: center;
+   // align-items: center;
+   // text-align: right;
+   h2{
+      text-align: center;
+      padding: 0;
+      background-color: rgb(209, 243, 243);
+   }
+}
 
 
 

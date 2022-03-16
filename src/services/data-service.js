@@ -97,14 +97,20 @@ async function emptyCart(){
 
 async function buyCartSales(){
     const cart = await _load('cart')
+    let salesTemp = cloneDeep(cart)
     const sales = await _load('sales') || []
     for (let ii = 0; ii < cart.length; ii++){
-        cart[ii].createdAt = Date.now()
-        sales.push(cart[ii])    
+        salesTemp[ii].createdAt = Date.now()
+        salesTemp[ii].year = new Date().getFullYear()
+        salesTemp[ii].month = new Date().getMonth()+1
+        salesTemp[ii].date = new Date().getDate()
+        sales.push(salesTemp[ii])    
     }
     await _save('sales', sales)
     return sales
 }
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 async function buyCartUniqueSales(){
     const cart = await _load('cart')
@@ -116,6 +122,9 @@ async function buyCartUniqueSales(){
     }
     for (let jj = 0; jj < uniqueSalesTemp.length; jj++){
         uniqueSalesTemp[jj].createdAt = Date.now()
+        uniqueSalesTemp[jj].year = new Date().getFullYear()
+        uniqueSalesTemp[jj].month = new Date().getMonth()+1
+        uniqueSalesTemp[jj].date = new Date().getDate()
         uniqueSales.push(uniqueSalesTemp[jj])
     }
 
