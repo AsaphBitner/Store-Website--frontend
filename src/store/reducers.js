@@ -1,12 +1,9 @@
-// import itemsList from "../Products-For-Sale"
-// console.log("REACHED REDUCER")
 
 const defaultState ={
     products: [],
     cart: [],
     sales: [],
     uniqueSales: [],
-    cart: [],
 }
 
 export default function myReducer(state = defaultState, action = {}){
@@ -21,20 +18,6 @@ export default function myReducer(state = defaultState, action = {}){
             return {...state, sales: action.sales}
         case 'UPDATE_UNIQUE_SALES':
             return {...state, uniqueSales: action.uniqueSales}
-        // case 'CHANGE_MINES':
-        //     return {...state, numOfMines: action.numOfMines}
-        // case 'CHANGE_LIVES':
-        //     return {...state, lives: action.num}
-        // case 'CHANGE_SAFE_CLICKS':
-        //     return {...state, safeClicks: action.num}
-        // case 'CHANGE_SMILEY':
-        //     return {...state, smiley: action.order}
-        // case 'CHANGE_FLAGS':
-        //     return {...state, numOfFlags: action.order}
-        // case 'CHANGE_TIME':
-        //     return {...state, time: action.payload}
-        // case 'ZERO_TIMER':
-        //     return {...state, zeroTimer: action.payload}
         default: 
             return state
     }   
