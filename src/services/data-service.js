@@ -101,9 +101,9 @@ async function buyCartSales(){
     const sales = await _load('sales') || []
     for (let ii = 0; ii < cart.length; ii++){
         salesTemp[ii].createdAt = Date.now()
-        salesTemp[ii].year = new Date().getFullYear()
-        salesTemp[ii].month = new Date().getMonth()+1
-        salesTemp[ii].date = new Date().getDate()
+        // salesTemp[ii].year = new Date().getFullYear()
+        // salesTemp[ii].month = new Date().getMonth()+1
+        // salesTemp[ii].date = new Date().getDate()
         sales.push(salesTemp[ii])    
     }
     await _save('sales', sales)
@@ -122,9 +122,9 @@ async function buyCartUniqueSales(){
     }
     for (let jj = 0; jj < uniqueSalesTemp.length; jj++){
         uniqueSalesTemp[jj].createdAt = Date.now()
-        uniqueSalesTemp[jj].year = new Date().getFullYear()
-        uniqueSalesTemp[jj].month = new Date().getMonth()+1
-        uniqueSalesTemp[jj].date = new Date().getDate()
+        // uniqueSalesTemp[jj].year = new Date().getFullYear()
+        // uniqueSalesTemp[jj].month = new Date().getMonth()+1
+        // uniqueSalesTemp[jj].date = new Date().getDate()
         uniqueSales.push(uniqueSalesTemp[jj])
     }
 
