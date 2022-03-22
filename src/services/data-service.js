@@ -1,5 +1,7 @@
 import { cloneDeep } from "lodash";
 import itemsList from "../Products-For-Sale";
+import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3000';
 
 export const dataService = {
     makeId,
