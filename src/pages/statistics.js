@@ -7,31 +7,31 @@ import { useNavigate } from "react-router-dom"
 
 function _StatsPage(){
 
-    const oneWeek = 604800000
-    const oneDay = 86400000
+    // const oneWeek = 604800000
+    // const oneDay = 86400000
     const products = useSelector(state => state.products)
     const sales = useSelector(state => state.sales)
     const uniqueSales = useSelector(state => state.uniqueSales)
     const [salesFive, setSalesFive] = useState([])
-    const [salesToShow, setSalesToShow] = useState(sales)
-    const [uniqueSalesToShow, setUniqueSalestoShow] = useState(uniqueSales)
+    const [salesToShow, setSalesToShow] = useState([])
+    const [uniqueSalesToShow, setUniqueSalestoShow] = useState([])
+
+    // useEffect(() => {
+    //     sales = []
+    //     sales = useSelector(state => state.sales)
+    //     uniqueSales = []
+    //     uniqueSales = useSelector(state => state.uniqueSales)
+    // }, [])
 
     useEffect(() => {
         updateDays()
     }, [sales])
 
     const updateDays = () => {
-        // const x = Date.now()
-        // const d = new Date(x);
-        // const aaa = new Date(d.setDate(-32));
 
         const days = []
         const todayOuter = new Date()
-        // const dateNow = Date.now()
-        // today.setDate(today.getDate()-1)
-        // const dateHere = new Date(today)
-        // console.log(new Date (today.setDate(today.getDate()-1)).getDate())
-        console.log(new Date(todayOuter.setDate(todayOuter.getDate()-4)).getDate())
+        // console.log(new Date(todayOuter.setDate(todayOuter.getDate()-4)).getDate())
         for (let ii = 0; ii < 5; ii++){
             const today = new Date()
             const salesForDate = sales.filter(item => {

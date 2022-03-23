@@ -6,7 +6,6 @@ import { addProduct } from "../store/actions"
 function _AddProduct(props){
     
     const [newProduct, setNewProduct] = useState({
-        _id: dataService.makeId(),
         name: '',
         description: '',
         price: '',
@@ -51,11 +50,17 @@ function _AddProduct(props){
         setNewProduct({...newProduct, image: ev.target.value})
     }
     
-    const handleSubmit = (ev)=> {
+    const handleSubmit = async (ev)=> {
         ev.preventDefault()
         if (newProduct.name && newProduct.description && newProduct.image && newProduct.price && (typeof newProduct.price === 'number'))
-        {props.addProduct(newProduct)
-        // console.log('SUBMITTED')
+        {
+        await props.addProduct(newProduct)
+        setNewProduct({
+            name: '',
+            description: '',
+            price: '',
+            image: '',
+        })
         props.setShowAddModal(false)}
         else {console.log('SOMETHING WRONG')}
     }

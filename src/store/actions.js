@@ -46,7 +46,7 @@ export function deleteProduct(payload){
     return async (dispatch) => {
         let products = await dataService.deleteProduct(payload)
         dispatch({type: 'UPDATE_PRODUCTS', products})
-        console.log("REACHED ACTION")
+        // console.log("REACHED ACTION")
 
     }
 }
