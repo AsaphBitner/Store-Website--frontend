@@ -24,31 +24,30 @@ function _StatsPage(){
     // }, [])
 
     useEffect(() => {
-        updateDays()
-    }, [sales])
-
-    const updateDays = () => {
-
         const days = []
         const todayOuter = new Date()
         // console.log(new Date(todayOuter.setDate(todayOuter.getDate()-4)).getDate())
         for (let ii = 0; ii < 5; ii++){
-            const today = new Date()
+            let today = new Date()
+            const todayModified = new Date(today.setDate(today.getDate()-ii))
             const salesForDate = sales.filter(item => {
                 return (new Date(item.createdAt).getDate() === new Date(today.setDate(today.getDate()-ii)).getDate() &&
-                new Date(item.createdAt).getMonth() === new Date(today.setDate(today.getDate())).getMonth() &&
-                new Date(item.createdAt).getFullYear() === new Date(today.setDate(today.getDate())).getFullYear())})
+                new Date(item.createdAt).getMonth() === new Date(today.setDate(today.getDate()-ii)).getMonth() &&
+                new Date(item.createdAt).getFullYear() === new Date(today.setDate(today.getDate()-ii)).getFullYear())})
+                
             const day = {
-                date: new Date(today.setDate(today.getDate()-ii)).getDate(),
-                month: new Date(today.setDate(today.getDate()-ii)).getMonth()+1,
-                year: new Date(today.setDate(today.getDate()-ii)).getFullYear(),
+                date: todayModified.getDate(),
+                month: todayModified.getMonth()+1,
+                year: todayModified.getFullYear(),
                 salesSum: salesForDate.reduce((prev, curr) => prev + curr.price, 0)
             }
+            console.log(todayModified.getDate())
             days.push(day)
+            // today = null
+            // todayModified = null
         }
-
-        setSalesFive(days)
-    }
+        setSalesFive(days)   
+    }, [sales])
 
 
     useEffect(() => {
